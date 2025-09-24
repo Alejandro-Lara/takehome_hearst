@@ -20,14 +20,12 @@ const users: User[] = [
 router.get('/users{/:id}{/:firstName}{/:lastName}{/:city}', (req:Request, res:Response) => {
     
     let result = users;
-    console.log(req.query)
     if(req.query.id){
         const numId = parseInt(req.query.id as string);
         result = result.filter(u => u.id == numId);
     }
 
     if(req.query.firstName){
-        console.log('a')
         result = result.filter(u => u.firstName == req.query.firstName);
     }
 
